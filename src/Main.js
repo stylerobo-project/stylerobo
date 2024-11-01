@@ -1,12 +1,7 @@
-import App from "./components/App";
-import HomePage from "./pages/HomePage";
+import App from './components/App.js';
 
 function Main() {
-  return (
-    <App>
-      <HomePage />
-    </App>
-  );
+  return <App />;
 }
 
 export default Main;
