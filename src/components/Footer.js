@@ -35,9 +35,15 @@ function Footer() {
           </div>
         </div>
         <ul className={styles.links}>
-          <li>서비스이용약관</li>
-          <li>개인정보처리방침</li>
-          <li>영상정보처리방침</li>
+          <li>
+            <a href="#">서비스이용약관</a>
+          </li>
+          <li>
+            <a href="#">개인정보처리방침</a>
+          </li>
+          <li>
+            <a href="#">영상정보처리방침</a>
+          </li>
         </ul>
         <p>© Gachon University. All rights reserved.</p>
       </Container>

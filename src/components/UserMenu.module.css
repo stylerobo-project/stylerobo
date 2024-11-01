@@ -24,6 +24,7 @@ ul.popup .item {
   color: #000000;
   background-color: transparent;
   transition: background-color 0.3s;
+  white-space: nowrap;
 }
 
 ul.popup .item:hover {
