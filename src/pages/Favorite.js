@@ -1,8 +1,8 @@
 import Container from "../components/Container";
 import styles from "./Favorite.module.css";
 import robot from "../assets/robot.png";
-import Button from "../components/Button";
-import { Navigate, useNavigate } from "react-router-dom";
+import Button from "../components/Button.js";
+import { useNavigate } from "react-router-dom";
 function Favorite() {
   const navigate = useNavigate();
   const navFavDiag = () => {
