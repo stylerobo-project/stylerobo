@@ -1,8 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "../pages/HomePage";
-import Favorite from "../pages/Favorite.js";
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
+import Favorite from "../pages/Favorite";
+import PersonalColorMain from "../pages/PersonalColorMain";
+import FavDiagnosis from "../pages/FavDiagnosis";
+import PersonalColorCheck from "../pages/PersonalColorCheck";
+import PersonalImageUpload from "../pages/PersonalImageUpload";
+import PersonalColorConsulting from "../pages/PersonalColorConsulting";
+import Nav from "./Nav";
+import Footer from "./Footer";
 import styles from "./App.module.css";
 import "./App.font.css";
 
@@ -13,7 +18,28 @@ function App() {
       <div className={styles.body}>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/favorite" element={<Favorite />} />
+          <Route path="consulting/favorite" element={<Favorite />} />
+          <Route
+            path="/consulting/personal-color-main"
+            element={<PersonalColorMain />}
+          />
+          <Route
+            path="consulting/favorite/diagnosis"
+            element={<FavDiagnosis />}
+          />
+          <Route
+            path="/personal-color-check"
+            element={<PersonalColorCheck />}
+          />
+          <Route
+            path="/personal-image-upload"
+            element={<PersonalImageUpload />}
+          />
+
+          <Route
+            path="/personal-color-consulting"
+            element={<PersonalColorConsulting />}
+          />
         </Routes>
       </div>
       <Footer className={styles.footer} />

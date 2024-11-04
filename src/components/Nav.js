@@ -4,6 +4,7 @@ import ConsultingMenu from "./ConsultingMenu";
 import MyStyleMenu from "./MyStyleMenu";
 import TodaysPickMenu from "./TodaysPickMenu";
 import UserMenu from "./UserMenu";
+import { Link } from "react-router-dom";
 
 function Nav() {
   return (
@@ -11,7 +12,9 @@ function Nav() {
       <Container className={styles.container}>
         <ul className={styles.menu}>
           <li>
-            <p className={styles.title}>STYLEROBO</p>
+            <p className={styles.title}>
+              <Link to="/">STYLEROBO</Link>
+            </p>
           </li>
           <li>
             <a>
