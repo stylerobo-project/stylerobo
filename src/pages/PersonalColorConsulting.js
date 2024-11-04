@@ -8,8 +8,8 @@ import Robot from "../assets/robot2.png";
 
 function PersonalColorConsulting() {
   const navigate = useNavigate();
-  const navFavDiag = () => {
-    navigate("/consulting/favorite/diagnosis");
+  const perImgUp = () => {
+    navigate("/personal-image-upload");
   };
   const [loading, setLoading] = useState(false);
   const handleSubmit = (e) => {
@@ -29,7 +29,9 @@ function PersonalColorConsulting() {
         </div>
       </Container>
       <div className={styles.button}>
-        <button className={styles.uploadButton}>▶ 사진 재 업로드</button>
+        <button className={styles.uploadButton} onClick={perImgUp}>
+          ▶ 사진 재 업로드
+        </button>
       </div>
       <div className={styles.button}>
         <button className={styles.aiconsultingButton} onClick={handleSubmit}>
