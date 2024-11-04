@@ -1,24 +1,17 @@
 .nav {
-  position: relative;
-  z-index: 1;
+  font-family: Holtwood One SC;
+  position: sticky;
+  top: 0;
+  width: 100%;
   padding: 15px 0;
+  z-index: 1000;
   background-color: hsl(0, 0%, 100%);
   box-shadow: var(--box-shadow);
-  border: 0px 0px 1.5px 0px;
-  border-bottom: 1.5px solid #e7e6e6;
 }
 
 p.title {
-  width: 206px;
-  height: 41px;
-  top: 9px;
-  left: 23px;
-  gap: 0px;
-  opacity: 0px;
-  font-family: Holtwood One SC;
-  font-size: 25px;
+  font-size: 35px;
   font-weight: 400;
-  line-height: 40.69px;
   text-align: left;
   color: black;
 }
@@ -30,22 +23,21 @@ p.title {
 }
 
 ul.menu {
-  display: flex;
-  align-items: center;
+  display: contents;
   padding: 0;
   margin: 0;
   list-style: none;
   width: 832px;
   height: 59px;
   left: 307px;
-  color: #ff5152;
+  font-size: 18px;
 }
 
 ul.menu a {
   color: #ff5152;
   text-decoration: none;
   position: relative;
-  padding: 6px 12px;
+  padding: 0px 12px;
 }
 
 ul.menu a::after {
@@ -62,17 +54,30 @@ ul.menu a::after {
 
 ul.menu a:hover::after {
   width: 100%;
-}
-
-ul.menu > li {
-  margin-right: 30px; /* 마지막 항목을 제외한 각 항목 간격 설정 */
+  background: #ff5152;
 }
 
 ul.menu > li:last-child {
-  margin-right: 0; /* 마지막 항목의 오른쪽 여백 제거 */
+  margin-right: 0;
 }
 
 ul.menu a:hover,
 ul.menu a:active {
   text-decoration: none;
+}
+
+/* STYLEROBO Link에 대한 스타일 추가 */
+ul.menu p.title > a {
+  color: black; /* 기본 색상 설정 */
+  text-decoration: none; /* 기본 밑줄 제거 */
+}
+
+ul.menu p.title > a:hover {
+  color: black; /* hover 시 색상 유지 */
+  text-decoration: none; /* hover 시 밑줄 제거 */
+}
+
+/* STYLEROBO Link에 대한 밑줄 제거 */
+ul.menu p.title > a::after {
+  content: none; /* 밑줄 제거 */
 }

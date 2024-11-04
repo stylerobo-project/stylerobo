@@ -1,6 +1,6 @@
 import Container from "../components/Container";
 import styles from "./HomePage.module.css";
-import SeasonImg from "../assets/season.svg";
+import SeasonImg from "../assets/season.png";
 
 function HomePage() {
   return (
