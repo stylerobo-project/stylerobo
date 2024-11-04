@@ -30,7 +30,6 @@ ul.menu {
   width: 832px;
   height: 59px;
   left: 307px;
-  color: #ff5152;
   font-size: 18px;
 }
 
@@ -55,6 +54,7 @@ ul.menu a::after {
 
 ul.menu a:hover::after {
   width: 100%;
+  background: #ff5152;
 }
 
 ul.menu > li:last-child {
@@ -64,4 +64,20 @@ ul.menu > li:last-child {
 ul.menu a:hover,
 ul.menu a:active {
   text-decoration: none;
+}
+
+/* STYLEROBO Link에 대한 스타일 추가 */
+ul.menu p.title > a {
+  color: black; /* 기본 색상 설정 */
+  text-decoration: none; /* 기본 밑줄 제거 */
+}
+
+ul.menu p.title > a:hover {
+  color: black; /* hover 시 색상 유지 */
+  text-decoration: none; /* hover 시 밑줄 제거 */
+}
+
+/* STYLEROBO Link에 대한 밑줄 제거 */
+ul.menu p.title > a::after {
+  content: none; /* 밑줄 제거 */
 }

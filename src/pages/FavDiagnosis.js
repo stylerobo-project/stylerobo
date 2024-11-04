@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Container from "../components/Container";
 import LoadingPage from "../components/Loading";
+import Robot from "../assets/robot.png";
 import styles from "./FavDiagnosis.module.css";
 import Casual from "../assets/Casual.png";
 import Street from "../assets/Street.png";
@@ -17,7 +18,6 @@ import Dandy from "../assets/Dandy.png";
 import Modern from "../assets/Modern.png";
 import Avant from "../assets/Avant.png";
 import AMCS from "../assets/AMCS.png";
-
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 
@@ -116,12 +116,11 @@ function FavoriteDiagnosis() {
   //     }
   //   };
 
-  if (loading) return <LoadingPage />
+  if (loading) return <LoadingPage robotImage={Robot} />;
   return (
     <>
       <div className={styles.bg} />
       <Container className={styles.container}>
-        
         <div className={styles.heading}>
           <strong> 당신의 취향 스타일을 알려주세요!</strong>
         </div>
@@ -193,13 +192,14 @@ function FavoriteDiagnosis() {
             className={styles.textarea}
             placeholder="당신이 좋아하는 스타일이나 평소에 입고싶은 스타일에 대해서 자유롭게 적어주세요!  
 작성된 글에 기반해서 당신이 원하는 스타일을 추천해드려요!"
-value={inputText}
-onChange={handleInputChange} >
-          
-          </textarea>
+            value={inputText}
+            onChange={handleInputChange}
+          ></textarea>
         </Container>
         <Container className={styles.buttoncontainer}>
-          <Button className={styles.button} onClick={handleSubmit}>▶ 진단 결과 보러가기</Button>
+          <Button className={styles.button} onClick={handleSubmit}>
+            ▶ 진단 결과 보러가기
+          </Button>
         </Container>
       </Container>
     </>

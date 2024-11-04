@@ -119,14 +119,13 @@
   resize: vertical;
   color: #727272;
 }
-.buttoncontainer{
-    padding-top: 30px;
-    display: flex;
-    justify-content: center; /* 가로 방향 가운데 정렬 */
+.buttoncontainer {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center; /* 가로 방향 가운데 정렬 */
 }
 
 .button {
- 
   width: 250px;
   height: 45px;
   font-size: 21px;
