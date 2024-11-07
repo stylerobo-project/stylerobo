@@ -40,5 +40,6 @@ a:visited {
 .body {
   padding: 60px;
   position: relative;
+
   flex-grow: 1;
 }
