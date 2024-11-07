@@ -90,17 +90,3 @@
     margin-bottom: 40px;
   }
 }
-@media (max-width: 840px) {
-  .container {
-    flex-direction: column-reverse;
-    margin: 60px auto 226px;
-  }
-
-  .texts {
-    margin-right: 0;
-  }
-
-  .figure {
-    margin-bottom: 40px;
-  }
-}
