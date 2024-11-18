@@ -6,6 +6,9 @@ import FavDiagnosis from "../pages/FavDiagnosis";
 import PersonalColorCheck from "../pages/PersonalColorCheck";
 import PersonalImageUpload from "../pages/PersonalImageUpload";
 import PersonalColorConsulting from "../pages/PersonalColorConsulting";
+import Login from "../pages/Login";
+import Signup from "../pages/Signup";
+
 import Nav from "./Nav";
 import Footer from "./Footer";
 import styles from "./App.module.css";
@@ -18,6 +21,8 @@ function App() {
       <div className={styles.body}>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/auth/login" element={<Login/>}/>
+          <Route path="/auth/signup" element={<Signup/>}/>
           <Route path="consulting/favorite" element={<Favorite />} />
           <Route
             path="/consulting/personal-color-main"
@@ -40,6 +45,7 @@ function App() {
             path="/personal-color-consulting"
             element={<PersonalColorConsulting />}
           />
+          
         </Routes>
       </div>
       <Footer className={styles.footer} />

@@ -1,9 +1,11 @@
 import { useCallback, useState } from "react";
 import userIcon from "../assets/user.png";
 import styles from "./UserMenu.module.css";
+import { useNavigate } from "react-router-dom";
 
 function UserMenu() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleMouseEnter = useCallback(() => {
     setIsOpen(true);
@@ -12,6 +14,14 @@ function UserMenu() {
   const handleMouseLeave = useCallback(() => {
     setIsOpen(false);
   }, []);
+
+  const navtoLogin = () => {
+    navigate("/auth/login");
+  };
+  const navSignup=()=>{
+    navigate("/auth/signup");
+
+  }
 
   return (
     <div
@@ -26,8 +36,8 @@ function UserMenu() {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <li className={styles.item}>회원가입</li>
-          <li className={styles.item}>로그인</li>
+          <li className={styles.item} onClick={navSignup}>회원가입</li>
+          <li className={styles.item} onClick={navtoLogin}>로그인</li>
         </ul>
       )}
     </div>
