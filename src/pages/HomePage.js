@@ -1,14 +1,6 @@
 import Container from "../components/Container";
 import styles from "./HomePage.module.css";
-import SeasonImg from "../assets/season.png";
-import RobotImg from "../assets/robot.png";
-import LineImg1 from "../assets/line1.png";
-import LineImg2 from "../assets/line2.png";
-import LineImg3 from "../assets/line3.png";
-import LineImg4 from "../assets/line4.png";
-import Circle from "../assets/circle.png";
-import Circle1 from "../assets/circle1.png";
-import Circle2 from "../assets/circle2.png";
+import SeasonImg from "../assets/season.svg";
 
 function HomePage() {
   return (
