@@ -10,6 +10,7 @@ import Circle from "../assets/circle.png";
 import Circle1 from "../assets/circle1.png";
 import Circle2 from "../assets/circle2.png";
 
+
 function HomePage() {
   return (
     <>
