@@ -2,7 +2,6 @@ import Container from "./Container";
 import styles from "./Nav.module.css";
 import ConsultingMenu from "./ConsultingMenu";
 import MyStyleMenu from "./MyStyleMenu";
-import TodaysPickMenu from "./TodaysPickMenu";
 import UserMenu from "./UserMenu";
 import { Link } from "react-router-dom";
 
@@ -24,11 +23,6 @@ function Nav() {
           <li>
             <a>
               <MyStyleMenu />
-            </a>
-          </li>
-          <li>
-            <a>
-              <TodaysPickMenu />
             </a>
           </li>
           <li>

@@ -31,8 +31,9 @@ function MyStyleMenu() {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <li className={styles.item} onClick={navtoFav}>나의 스타일 보고서</li>
-
+          <li className={styles.item} onClick={navtoFav}>
+            나의 스타일 보고서
+          </li>
         </ul>
       )}
     </div>

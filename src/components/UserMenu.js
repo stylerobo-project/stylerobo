@@ -18,10 +18,9 @@ function UserMenu() {
   const navtoLogin = () => {
     navigate("/auth/login");
   };
-  const navSignup=()=>{
+  const navSignup = () => {
     navigate("/auth/signup");
-
-  }
+  };
 
   return (
     <div
@@ -36,8 +35,12 @@ function UserMenu() {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <li className={styles.item} onClick={navSignup}>회원가입</li>
-          <li className={styles.item} onClick={navtoLogin}>로그인</li>
+          <li className={styles.item} onClick={navSignup}>
+            회원가입
+          </li>
+          <li className={styles.item} onClick={navtoLogin}>
+            로그인
+          </li>
         </ul>
       )}
     </div>
