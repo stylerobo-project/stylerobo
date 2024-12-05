@@ -6,7 +6,6 @@ import FavDiagnosis from "../pages/FavDiagnosis";
 import FavResult from "../pages/FavResult";
 import PersonalColorCheck from "../pages/PersonalColorCheck";
 import PersonalImageUpload from "../pages/PersonalImageUpload";
-import PersonalColorConsulting from "../pages/PersonalColorConsulting";
 import PersonalResult from "../pages/PersonalResult";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
@@ -45,12 +44,9 @@ function App() {
             path="/personal-image-upload"
             element={<PersonalImageUpload />}
           />
+      
           <Route
-            path="/personal-color-consulting"
-            element={<PersonalColorConsulting />}
-          />
-          <Route
-            path="/personal-color-consulting/personal-color-result"
+            path="/personal-image-upload/personal-color-result"
             element={<PersonalResult />}
           />
           <Route path="/mystyle" element={<MyStyle />} />
