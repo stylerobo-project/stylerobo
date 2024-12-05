@@ -12,7 +12,7 @@ function Login() {
   const navSignup = () => {
     navigate("/auth/signup");
   };
-  
+
   return (
     <>
       <div className={styles.bg} />

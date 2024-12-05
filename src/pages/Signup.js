@@ -79,27 +79,27 @@ function Signup() {
               </div>
               <label className={styles.text3} htmlFor="gender">
                 성별
-              </label><div className={styles.text3}>
-              <div className={styles.checkboxGroup}>
-
-                <label className={styles.checkboxLabel}>
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="male"
-                    className={styles.checkbox}
-                  />
-                  남성
-                </label>
-                <label className={styles.checkboxLabel}>
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="female"
-                    className={styles.checkbox}
-                  />
-                  여성
-                </label>
+              </label>
+              <div className={styles.text3}>
+                <div className={styles.checkboxGroup}>
+                  <label className={styles.checkboxLabel}>
+                    <input
+                      type="radio"
+                      name="gender"
+                      value="male"
+                      className={styles.checkbox}
+                    />
+                    남성
+                  </label>
+                  <label className={styles.checkboxLabel}>
+                    <input
+                      type="radio"
+                      name="gender"
+                      value="female"
+                      className={styles.checkbox}
+                    />
+                    여성
+                  </label>
                 </div>
               </div>
               <Button className={styles.button1} onClick={navHome}>
