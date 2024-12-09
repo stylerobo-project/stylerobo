@@ -4,7 +4,10 @@ import person from "../assets/person.png";
 import share from "../assets/share.png";
 import save from "../assets/save.png";
 import robot from "../assets/robot3.png";
-import user from "../assets/robot3.png";
+import a from "../assets/a1.png";
+import b from "../assets/a2.png";
+import c from "../assets/a3.png";
+import d from "../assets/a4.png";
 
 function FavResult() {
   return (
@@ -27,14 +30,10 @@ function FavResult() {
             </div>
 
             <div className={styles.imageGrid}>
-              <img src={user} alt="추천 스타일 1" />
-              <img src={user} alt="추천 스타일 2" />
-              <img src={user} alt="추천 스타일 3" />
-              <img src={user} alt="추천 스타일 4" />
-              <img src={user} alt="추천 스타일 5" />
-              <img src={user} alt="추천 스타일 6" />
-              <img src={user} alt="추천 스타일 7" />
-              <img src={user} alt="추천 스타일 8" />
+              <img src={a} alt="추천 스타일 1" />
+              <img src={b} alt="추천 스타일 2" />
+              <img src={c} alt="추천 스타일 3" />
+              <img src={d} alt="추천 스타일 4" />
             </div>
           </div>
         </div>
@@ -43,10 +42,6 @@ function FavResult() {
           <button className={styles.saveButton}>
             <img src={share} alt="share" className={styles.buttonIcon} />
             My Style에 저장하기
-          </button>
-          <button className={styles.shareButton}>
-            <img src={save} alt="save" className={styles.buttonIcon} />
-            친구에게 공유하기
           </button>
         </div>
       </Container>
