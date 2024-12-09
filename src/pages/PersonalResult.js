@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Container from "../components/Container";
 import LoadingPage from "../components/Loading";
@@ -7,45 +7,20 @@ import share from "../assets/share.png";
 import save from "../assets/save.png";
 import robot from "../assets/robot2.png";
 import user from "../assets/robot3.png";
-import axios from "axios";
 
 function PersonalResult() {
   const location = useLocation();
-  const { previewImage, selectedFile } = location.state || {}; // 업로드한 이미지 데이터 수신
-  const [resultData, setResultData] = useState(null);
+  const { previewImage, resultData } = location.state || {}; // 데이터를 수신
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // FormData로 파일 전송
-        const formData = new FormData();
-        formData.append("file", selectedFile);
-
-        const response = await axios.post("http://localhost:8080/api/fashion/analysis", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        });
-
-        if (response.data.statusCode === 200) {
-          setResultData(response.data.data); // 결과 데이터 저장
-        } else {
-          console.error("분석 실패:", response.data.responseMessage);
-        }
-      } catch (error) {
-        console.error("API 호출 중 오류 발생:", error);
-      } finally {
-        setLoading(false); // 로딩 종료
-      }
-    };
-
-    if (selectedFile) {
-      fetchData();
+    if (resultData) {
+      // 데이터가 존재하면 로딩 상태를 false로 변경
+      setTimeout(() => setLoading(false), 1000); // 로딩 애니메이션을 1초 동안 표시
     } else {
-      setLoading(false); // 파일이 없을 경우 로딩 종료
+      setLoading(false); // 데이터가 없을 경우 즉시 로딩 종료
     }
-  }, [selectedFile]);
+  }, [resultData]);
 
   if (loading) {
     return <LoadingPage robotImage={robot} />; // 로딩 화면 표시
@@ -111,4 +86,4 @@ function PersonalResult() {
   );
 }
 
-export default PersonalResult;
+export default PersonalResult; //personalResult.js
