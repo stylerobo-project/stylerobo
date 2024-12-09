@@ -14,14 +14,13 @@
 .figure {
   display: block;
 }
+
 .previewImage {
- width: 600px;
+  width: 600px;
   height: 800px;
   border-radius: 15px;
   display: block;
 }
-
-
 .button {
   display: flex;
   flex-direction: column;
