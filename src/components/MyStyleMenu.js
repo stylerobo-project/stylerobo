@@ -24,7 +24,8 @@ function MyStyleMenu() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <a className={styles.icon}>My Style</a>
+      <span className={styles.icon}>My Style</span>{" "}
+      {/* <a> 태그를 <span>으로 변경 */}
       {isOpen && (
         <ul
           className={styles.popup}
