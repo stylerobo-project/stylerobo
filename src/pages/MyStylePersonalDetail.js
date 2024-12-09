@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Container from "../components/Container";
 import styles from "./MyStylePersonalDetail.module.css";
-import Mystyle from "../assets/mystyle.png";
-import robot from "../assets/robot.png";
-import robot2 from "../assets/robot2.png";
-import robot3 from "../assets/robot3.png";
-import youtube from "../assets/youtube.svg";
+import a from "../assets/b1.png";
+import b from "../assets/b2.png";
+import c from "../assets/b3.png";
+import d from "../assets/b4.png";
+import e from "../assets/b5.png";
 
 import LeftArrow from "../assets/left-arrow.svg"; // 왼쪽 화살표 아이콘
 import RightArrow from "../assets/right-arrow.svg"; // 오른쪽 화살표 아이콘
@@ -59,8 +59,8 @@ const ImageSlider = ({ images, date, title, tags }) => {
 };
 
 function MyStylePersonalDetail() {
-  const images = [Mystyle, robot, robot2, robot3]; // 이미지 배열
-  const images2 = [youtube, robot2, robot3];
+  const images = [a, b, c, d, e]; // 이미지 배열
+  const images2 = [a, b, c, d, e];
   return (
     <>
       <ImageSlider
