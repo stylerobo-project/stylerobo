@@ -106,7 +106,6 @@
 }
 .button2 {
   width: 100px; /* 버튼 크기 고정 */
-  height: 45px; /* 입력 필드와 높이를 맞춤 */
   font-size: 14px; /* 텍스트 크기 */
   font-weight: 700; /* 텍스트 굵기 */
   text-align: center;
@@ -145,7 +144,6 @@
 .button1 {
   display: inline-block;
   width: 402px; /* 부모 컨테이너에 맞춤 */
-  height: 42px; /* 버튼 높이 설정 */
   font-size: 16px; /* 텍스트 크기 */
   font-weight: 700; /* 텍스트 굵기 */
   text-align: center; /* 텍스트 가운데 정렬 */
