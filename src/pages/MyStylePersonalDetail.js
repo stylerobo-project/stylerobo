@@ -1,12 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../components/Container";
 import styles from "./MyStylePersonalDetail.module.css";
-import a from "../assets/b1.png";
-import b from "../assets/b2.png";
-import c from "../assets/b3.png";
-import d from "../assets/b4.png";
-import e from "../assets/b5.png";
-
 import LeftArrow from "../assets/left-arrow.svg"; // 왼쪽 화살표 아이콘
 import RightArrow from "../assets/right-arrow.svg"; // 오른쪽 화살표 아이콘
 
@@ -14,7 +8,7 @@ const ImageSlider = ({ images, date, title, tags }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToNext = () => {
-    if (currentIndex < images.length - 2) {
+    if (currentIndex < images.length - 1) {
       setCurrentIndex(currentIndex + 1);
     }
   };
@@ -59,22 +53,39 @@ const ImageSlider = ({ images, date, title, tags }) => {
 };
 
 function MyStylePersonalDetail() {
-  const images = [a, b, c, d, e]; // 이미지 배열
-  const images2 = [a, b, c, d, e];
+  const [savedStyles, setSavedStyles] = useState([]); // 초기값을 빈 배열로 설정
+
+  useEffect(() => {
+    fetch("http://localhost:8080/api/myStyle/color") // 데이터 가져오기 API 호출
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.statusCode === 200) {
+          setSavedStyles(data.data); // 데이터 저장
+        } else {
+          console.error("API 응답 오류:", data.responseMessage);
+        }
+      })
+      .catch((error) => {
+        console.error("데이터 가져오기 실패:", error);
+      });
+  }, []);
+
+  // savedStyles가 배열인지 확인하고 맵핑
   return (
     <>
-      <ImageSlider
-        images={images}
-        date="2024.10.21."
-        title="가을 웜톤"
-        tags="#갈색 계열 #가죽소재#짙은 컬러 #진중한 이미지#에스닉 & 보헤미안 스타일"
-      />
-      <ImageSlider
-        images={images2}
-        date="2024.12.01."
-        title="겨울 쿨톤"
-        tags="#갈색 계열 #가죽소재#짙은 컬러 #진중한 이미지#에스닉 & 보헤미안 스타일"
-      />
+      {Array.isArray(savedStyles) && savedStyles.length > 0 ? (
+        savedStyles.map((style, index) => (
+          <ImageSlider
+            key={index}
+            images={[style.faceImage]} // 이미지 URL 배열
+            date={new Date(style.createAt).toLocaleDateString()} // 날짜 포맷
+            title={style.colorType}
+            tags={style.recommendation}
+          />
+        ))
+      ) : (
+        <div>저장된 스타일이 없습니다.</div>
+      )}
     </>
   );
 }
