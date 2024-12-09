@@ -46,9 +46,8 @@ function MyStyle() {
             <div className={styles.heading}>
               <strong>취향 스타일 진단 결과</strong>
               <p>
-                AI 이미지 분석 기술을 활용하여 사용자가 업로드한 최애 옷의
-                사진을 분석하고, <br /> 그 취향을 반영한 맞춤형 의류 추천을
-                제공합니다.{" "}
+                체형과 얼굴형, 스타일을 선택한 후 사용자가 작성한 글에 기반하여{" "}
+                AI가 취향을 분석하고, 그에 맞춘 맞춤형 코디를 추천합니다.
               </p>
               <div className={styles.button}>
                 <button className={styles.detailButton} onClick={FavDetail}>
