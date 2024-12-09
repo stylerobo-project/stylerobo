@@ -3,7 +3,7 @@ import userIcon from "../assets/user.png";
 import styles from "./UserMenu.module.css";
 import { useNavigate } from "react-router-dom";
 
-function UserMenu() {
+function UserMenu({ userName, onLogout }) {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -18,6 +18,7 @@ function UserMenu() {
   const navtoLogin = () => {
     navigate("/auth/login");
   };
+
   const navSignup = () => {
     navigate("/auth/signup");
   };
@@ -35,12 +36,23 @@ function UserMenu() {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <li className={styles.item} onClick={navSignup}>
-            회원가입
-          </li>
-          <li className={styles.item} onClick={navtoLogin}>
-            로그인
-          </li>
+          {userName ? (
+            <>
+              <li className={styles.item}>{userName}</li>
+              <li className={styles.item} onClick={onLogout}>
+                로그아웃
+              </li>
+            </>
+          ) : (
+            <>
+              <li className={styles.item} onClick={navSignup}>
+                회원가입
+              </li>
+              <li className={styles.item} onClick={navtoLogin}>
+                로그인
+              </li>
+            </>
+          )}
         </ul>
       )}
     </div>
