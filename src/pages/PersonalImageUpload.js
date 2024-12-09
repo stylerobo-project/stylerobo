@@ -54,8 +54,12 @@ function PersonalImageUpload() {
       if (response.data.statusCode === 200) {
         alert("분석이 완료되었습니다!");
         // 결과 페이지로 이동하면서 데이터 전달
-        navigate("personal-color-result", {
-          state: { resultData: response.data.data },
+        navigate("/personal-color-consulting/personal-color-result", {
+          // 절대 경로로 수정
+          state: {
+            previewImage: previewImage,
+            resultData: response.data.data,
+          },
         });
       } else {
         alert("분석 실패: " + response.data.responseMessage);
@@ -93,4 +97,4 @@ function PersonalImageUpload() {
   );
 }
 
-export default PersonalImageUpload;
+export default PersonalImageUpload; //personalimageupload 파일
