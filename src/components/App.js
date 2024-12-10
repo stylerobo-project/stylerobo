@@ -18,14 +18,12 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import styles from "./App.module.css";
 import "./App.font.css";
+import AuthWrapper from "./AuthWrapper";
 
 function App() {
-  const [userName, setUserName] = useState(null);
+  const [user, setUser] = useState(null); // 로그인된 사용자 정보
 
-  const handleLoginSuccess = (name) => {
-    setUserName(name);
-  };
-
+  // 로그아웃 처리
   const handleLogout = async () => {
     try {
       const response = await fetch("http://localhost:8080/api/user/logout", {
@@ -33,15 +31,13 @@ function App() {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include", // 쿠키 포함
       });
 
-      const data = await response.json();
-
-      if (data.statusCode === 200) {
-        alert(data.data.message);
-        setUserName(null);
+      if (response.ok) {
+        setUser(null);
       } else {
-        alert("로그아웃 실패: " + data.data.message);
+        alert("로그아웃 실패");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -50,50 +46,108 @@ function App() {
   };
 
   return (
-    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-      <Nav userName={userName} onLogout={handleLogout} />
+    <Router>
+      <Nav
+        userName={user?.nickName}
+        userGender={user?.gender}
+        onLogout={handleLogout}
+      />
       <div className={styles.body}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route
             path="/auth/login"
-            element={
-              <Login userName={userName} onLoginSuccess={handleLoginSuccess} />
-            }
+            element={<Login onLoginSuccess={() => setUser(user)} />}
           />
           <Route path="/auth/signup" element={<Signup />} />
-          <Route path="/consulting/favorite" element={<Favorite />} />
+          <Route
+            path="/consulting/favorite"
+            element={
+              <AuthWrapper setUser={setUser}>
+                <Favorite />
+              </AuthWrapper>
+            }
+          />
           <Route
             path="/consulting/personal-color-main"
-            element={<PersonalColorMain />}
+            element={
+              <AuthWrapper setUser={setUser}>
+                <PersonalColorMain />
+              </AuthWrapper>
+            }
           />
           <Route
             path="/consulting/favorite/diagnosis"
-            element={<FavDiagnosis />}
+            element={
+              <AuthWrapper setUser={setUser}>
+                <FavDiagnosis />
+              </AuthWrapper>
+            }
           />
-          <Route path="/consulting/favorite/result" element={<FavResult />} />
+          <Route
+            path="/consulting/favorite/result"
+            element={
+              <AuthWrapper setUser={setUser}>
+                <FavResult />
+              </AuthWrapper>
+            }
+          />
           <Route
             path="/personal-color-check"
-            element={<PersonalColorCheck />}
+            element={
+              <AuthWrapper setUser={setUser}>
+                <PersonalColorCheck />
+              </AuthWrapper>
+            }
           />
           <Route
             path="/personal-image-upload"
-            element={<PersonalImageUpload />}
+            element={
+              <AuthWrapper setUser={setUser}>
+                <PersonalImageUpload />
+              </AuthWrapper>
+            }
           />
           <Route
             path="/personal-color-consulting"
-            element={<PersonalColorConsulting />}
+            element={
+              <AuthWrapper setUser={setUser}>
+                <PersonalColorConsulting />
+              </AuthWrapper>
+            }
           />
           <Route
             path="/personal-color-consulting/personal-color-result"
-            element={<PersonalResult />}
+            element={
+              <AuthWrapper setUser={setUser}>
+                <PersonalResult />
+              </AuthWrapper>
+            }
           />
-          <Route path="/mystyle" element={<MyStyle />} />
+          <Route
+            path="/mystyle"
+            element={
+              <AuthWrapper setUser={setUser}>
+                <MyStyle />
+              </AuthWrapper>
+            }
+          />
           <Route
             path="/mystyle/Personal-Detail"
-            element={<MyStylePersonalDetail />}
+            element={
+              <AuthWrapper setUser={setUser}>
+                <MyStylePersonalDetail />
+              </AuthWrapper>
+            }
           />
-          <Route path="/mystyle/Fav-Detail" element={<MyStyleFavDetail />} />
+          <Route
+            path="/mystyle/Fav-Detail"
+            element={
+              <AuthWrapper setUser={setUser}>
+                <MyStyleFavDetail />
+              </AuthWrapper>
+            }
+          />
         </Routes>
       </div>
       <Footer className={styles.footer} />
