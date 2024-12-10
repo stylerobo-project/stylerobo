@@ -1,3 +1,4 @@
+import React from "react";
 import Container from "./Container";
 import styles from "./Nav.module.css";
 import ConsultingMenu from "./ConsultingMenu";
@@ -6,7 +7,6 @@ import UserMenu from "./UserMenu";
 import { Link } from "react-router-dom";
 
 function Nav({ userName, onLogout }) {
-  // userName과 onLogout props 추가
   return (
     <div className={styles.nav}>
       <Container className={styles.container}>
@@ -28,8 +28,7 @@ function Nav({ userName, onLogout }) {
           </li>
           <li>
             <a>
-              <UserMenu userName={userName} onLogout={onLogout} />{" "}
-              {/* UserMenu에 props 전달 */}
+              <UserMenu userName={userName} onLogout={onLogout} />
             </a>
           </li>
         </ul>
