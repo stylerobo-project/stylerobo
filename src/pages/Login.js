@@ -1,37 +1,17 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Container from "../components/Container";
 import styles from "./Login.module.css";
-import Button from "../components/Button.js";
-import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
 import robot from "../assets/robot3.png";
 
-function Login({ userName, onLoginSuccess }) {
-  // userName prop 추가
+function Login({ onLoginSuccess }) {
   const navigate = useNavigate();
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
-  const navHome = () => {
-    navigate("/");
-  };
-
-  const navSignup = () => {
-    navigate("/auth/signup");
-  };
-
   const handleLogin = async (e) => {
     e.preventDefault();
-
-    // 이미 로그인 상태인 경우
-    if (userName) {
-      alert("이미 로그인 상태입니다."); // 로그인 상태 확인
-      return;
-    }
-
-    const requestData = {
-      userName: username,
-      password,
-    };
 
     try {
       const response = await fetch("http://localhost:8080/api/user/login", {
@@ -39,22 +19,28 @@ function Login({ userName, onLoginSuccess }) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(requestData),
+        body: JSON.stringify({ userName: username, password }),
+        credentials: "include", // 쿠키 포함
       });
 
       const data = await response.json();
+      console.log("로그인 응답:", response.headers.get("Set-Cookie")); // 쿠키 확인
 
       if (data.statusCode === 200 && data.data.status === 1) {
-        alert(data.data.message);
-        onLoginSuccess(username); // 로그인 성공 시 사용자 이름 설정
-        navHome();
+        alert("로그인 성공! 환영합니다!");
+        await onLoginSuccess(); // 상태 업데이트
+        navigate("/"); // 홈으로 이동
       } else {
-        alert("로그인 실패: " + data.data.message);
+        alert("로그인 실패: " + data.responseMessage);
       }
     } catch (error) {
       console.error("Error:", error);
       alert("로그인 중 오류가 발생했습니다.");
     }
+  };
+
+  const navSignup = () => {
+    navigate("/auth/signup");
   };
 
   return (
@@ -71,13 +57,13 @@ function Login({ userName, onLoginSuccess }) {
             </div>
             <div className={styles.heading}>STYLEROBO</div>
           </Container>
+
           <Container className={styles.logincontainer}>
             <div className={styles.heading2}>스타일로보 로그인</div>
-
             <form onSubmit={handleLogin}>
               <input
                 type="text"
-                id="id"
+                id="username"
                 placeholder="아이디"
                 className={styles.inputcontainer}
                 value={username}

@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from "react-router-dom"; // useNavigate ì¶”ê
 import Container from "../components/Container";
 import LoadingPage from "../components/Loading";
 import styles from "./PersonalResult.module.css";
-import share from "../assets/share.png";
 import save from "../assets/save.png";
 import robot from "../assets/robot2.png";
 import user from "../assets/robot3.png";
